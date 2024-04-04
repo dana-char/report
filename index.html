@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+/* Cela assure que le body prend toute la hauteur et largeur de la viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Classe responsive pour l'iframe */
+.responsive-iframe {
+    width: 100%; /* Permet à l'iframe de prendre toute la largeur de son conteneur */
+    height: 100vh; /* Utilise 100% de la hauteur de la fenêtre d'affichage */
+    position: absolute;
+    border: none; /* Optionnel : enlève la bordure de l'iframe */
+}
+
+/* Container pour l'iframe */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Maintient le ratio 16:9 */
+    overflow: hidden;
+}
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+</style>
+</head>
 <body>
 
-<iframe title="LOREAL_depenses_budget_MKTG" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=2ede1377-b2a6-45bb-aff7-2fcd15fddd67&autoAuth=true&ctid=19df09a9-d1f0-4cff-90c4-01385cc40b57" frameborder="0" allowFullScreen="true"></iframe>
+<div class="iframe-container">
+<iframe class="responsive-iframe" title="LOREAL_depenses_budget_MKTG" src="https://app.powerbi.com/reportEmbed?reportId=2ede1377-b2a6-45bb-aff7-2fcd15fddd67&autoAuth=true&ctid=19df09a9-d1f0-4cff-90c4-01385cc40b57" frameborder="0" allowFullScreen="true"></iframe>
+</div>
 
 </body>
 </html>
