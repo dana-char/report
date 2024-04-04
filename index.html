@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<style>
-/* Cela assure que le body prend toute la hauteur et largeur de la viewport */
-html, body {
-    height: 100%;
-    margin: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Style de base pour le conteneur de l'iframe pour le rendre responsive */
+        .responsive-iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            /* Hauteur fixe pour mobile, peut être ajustée pour différents besoins */
+            height: 300px; /* Hauteur initiale pour les petits écrans */
+        }
+        
+        /* Ajustements pour les écrans plus larges */
+        @media (min-width: 768px) {
+            .responsive-iframe-container {
+                /* Ratio 16:9 pour les écrans plus larges */
+                padding-top: 56.25%;
+                height: 0; /* Permet au padding-top de définir la hauteur */
+            }
+        }
 
-/* Classe responsive pour l'iframe */
-.responsive-iframe {
-    width: 100%; /* Permet à l'iframe de prendre toute la largeur de son conteneur */
-    height: 100vh; /* Utilise 100% de la hauteur de la fenêtre d'affichage */
-    position: absolute;
-    border: none; /* Optionnel : enlève la bordure de l'iframe */
-}
-
-/* Container pour l'iframe */
-.iframe-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* Maintient le ratio 16:9 */
-    overflow: hidden;
-}
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-</style>
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
 
-<div class="iframe-container">
-<iframe class="responsive-iframe" title="LOREAL_depenses_budget_MKTG" src="https://app.powerbi.com/reportEmbed?reportId=2ede1377-b2a6-45bb-aff7-2fcd15fddd67&autoAuth=true&ctid=19df09a9-d1f0-4cff-90c4-01385cc40b57" frameborder="0" allowFullScreen="true"></iframe>
+<div class="responsive-iframe-container">
+    <iframe title="LOREAL_depenses_budget_MKTG" src="https://app.powerbi.com/reportEmbed?reportId=2ede1377-b2a6-45bb-aff7-2fcd15fddd67&autoAuth=true&ctid=19df09a9-d1f0-4cff-90c4-01385cc40b57" frameborder="0" allowFullScreen="true"></iframe>
 </div>
 
 </body>
